@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
@@ -64,18 +66,23 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cboSearch = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnImage = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnExportOpen = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnSaveToTxt = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnOpenWord = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnOpenWord);
+            this.panel1.Controls.Add(this.btnSaveToTxt);
+            this.panel1.Controls.Add(this.btnExportOpen);
             this.panel1.Controls.Add(this.btnImage);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txtEmail);
@@ -107,8 +114,29 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.panel1.Location = new System.Drawing.Point(12, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1604, 488);
+            this.panel1.Size = new System.Drawing.Size(1652, 488);
             this.panel1.TabIndex = 0;
+            // 
+            // btnImage
+            // 
+            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnImage.Location = new System.Drawing.Point(717, 250);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(192, 65);
+            this.btnImage.TabIndex = 31;
+            this.btnImage.Text = "Image";
+            this.btnImage.UseVisualStyleBackColor = true;
+            this.btnImage.Click += new System.EventHandler(this.BtnImage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(954, 251);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(446, 216);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.PictureBox1_DoubleClick);
             // 
             // txtEmail
             // 
@@ -429,30 +457,46 @@
             this.cboSearch.Size = new System.Drawing.Size(258, 46);
             this.cboSearch.TabIndex = 26;
             // 
-            // pictureBox1
+            // btnExportOpen
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(954, 251);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(446, 216);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.PictureBox1_DoubleClick);
+            this.btnExportOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnExportOpen.Location = new System.Drawing.Point(1432, 5);
+            this.btnExportOpen.Name = "btnExportOpen";
+            this.btnExportOpen.Size = new System.Drawing.Size(174, 96);
+            this.btnExportOpen.TabIndex = 32;
+            this.btnExportOpen.Text = "Export/Open Excel";
+            this.btnExportOpen.UseVisualStyleBackColor = true;
+            this.btnExportOpen.Click += new System.EventHandler(this.BtnExportOpen_Click);
             // 
-            // btnImage
+            // saveFileDialog1
             // 
-            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnImage.Location = new System.Drawing.Point(717, 250);
-            this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(192, 65);
-            this.btnImage.TabIndex = 31;
-            this.btnImage.Text = "Image";
-            this.btnImage.UseVisualStyleBackColor = true;
-            this.btnImage.Click += new System.EventHandler(this.BtnImage_Click);
+            this.saveFileDialog1.Filter = "Excel Files|*.xlsx|Text Files|*.txt|Word Files|*.docx";
+            // 
+            // btnSaveToTxt
+            // 
+            this.btnSaveToTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnSaveToTxt.Location = new System.Drawing.Point(1432, 119);
+            this.btnSaveToTxt.Name = "btnSaveToTxt";
+            this.btnSaveToTxt.Size = new System.Drawing.Size(174, 96);
+            this.btnSaveToTxt.TabIndex = 33;
+            this.btnSaveToTxt.Text = "Save To Text";
+            this.btnSaveToTxt.UseVisualStyleBackColor = true;
+            this.btnSaveToTxt.Click += new System.EventHandler(this.BtnSaveToTxt_Click);
             // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(WindowsFormsApp1.BizContacts);
+            // 
+            // btnOpenWord
+            // 
+            this.btnOpenWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnOpenWord.Location = new System.Drawing.Point(1432, 235);
+            this.btnOpenWord.Name = "btnOpenWord";
+            this.btnOpenWord.Size = new System.Drawing.Size(174, 96);
+            this.btnOpenWord.TabIndex = 34;
+            this.btnOpenWord.Text = "Open In Word";
+            this.btnOpenWord.UseVisualStyleBackColor = true;
+            this.btnOpenWord.Click += new System.EventHandler(this.BtnOpenWord_Click);
             // 
             // BizContacts
             // 
@@ -473,8 +517,8 @@
             this.Load += new System.EventHandler(this.BizContacts_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -522,5 +566,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnExportOpen;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnSaveToTxt;
+        private System.Windows.Forms.Button btnOpenWord;
     }
 }

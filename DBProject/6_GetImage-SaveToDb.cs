@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//needed for File use
+// needed for File use
 using System.IO;
 
 namespace WindowsFormsApp1
@@ -30,7 +30,6 @@ namespace WindowsFormsApp1
 
         // declare a new commandBuilder obj
         SqlCommandBuilder commandBuilder;
-
 
         // because using it in multiple places, so leave it here
         SqlConnection conn;

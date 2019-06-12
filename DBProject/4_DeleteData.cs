@@ -28,7 +28,6 @@ namespace WindowsFormsApp1
         // declare a new commandBuilder obj
         SqlCommandBuilder commandBuilder;
 
-
         // because using it in multiple places, so leave it here
         SqlConnection conn;
 
